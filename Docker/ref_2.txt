@@ -1,0 +1,29 @@
+Certainly! Here is an explanation for each line within the Docker Compose file:
+
+1. `version: "2"`: Denotes the version of the Docker Compose file being used. The version number "2" corresponds to the schema used in this file.
+
+2. `services`: Begins the definition of the services in this Docker Compose file.
+
+3. `app`: Defines a service named "app" that will be built using the specified details.
+
+    - `build: ./app`: Specifies that the contents of the local `app` directory are to be used as the build context for the "app" service. This is where the Dockerfile for the "app" service is located.
+    
+    - `links: - db`: Establishes a link between this service and another service named "db". This is a legacy feature and is no longer required for modern versions of Docker Compose. Containers on the default network can communicate with each other without explicit links.
+    
+    - `ports: - "5000:5000"`: Maps port 5000 on the host to port 5000 on the "app" service. It allows access to the application running in the "app" service from the host machine.
+
+    - `depends_on: - db`: Specifies that the "app" service is dependent on the "db" service. This ensures that the "db" service is started before the "app" service starts.
+
+4. `db`: Defines a service named "db" that uses the official MySQL 5.7 Docker image.
+
+    - `image: mysql:5.7`: Pulls the MySQL 5.7 image from the Docker Hub if it's not already available locally.
+
+    - `ports: - "32000:3306"`: Maps port 32000 on the host to port 3306 on the "db" service. This allows direct access to the MySQL database running in the container.
+
+    - `environment: MYSQL_ROOT_PASSWORD: root`: Sets the root password for the MySQL instance to "root" as an environment variable. This password can be changed based on security needs.
+
+    - `volumes:`: Specifies the volumes to mount for the "db" service.
+    
+        - `./db/init.sql:/docker-entrypoint-initdb.d/init.sql`: Mounts the local `init.sql` file into the container's `/docker-entrypoint-initdb.d/` directory. This file will be executed when the MySQL container is created, populating the database with initial data.
+        
+        - `./data:/var/lib/mysql`: Mounts the local `data` directory to the MySQL data directory in the container. This enables persistent storage for the MySQL database, ensuring that data is retained between container restarts.

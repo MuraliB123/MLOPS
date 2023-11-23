@@ -1,0 +1,9 @@
+Certainly! 
+
+The line `./data:/var/lib/mysql` in the `volumes` section of the Docker Compose file denotes a volume mapping from the local host to the MySQL data directory in the container.
+
+Breaking it down:
+
+- `./data`: Refers to the directory named "data" in the current working directory (the local host's filesystem). This is the source directory on the host machine.
+
+- `:/var/lib/mysql`: Denotes the destination path inside the MySQL container. It points to the directory where MySQL stores its data, including databases, tables, and related files. By mapping the local `data` directory to this location in the container, changes made to the database data inside the container are reflected in the `data` directory on the host machine and vice versa. This enables the data to persist even when the container is stopped or removed.

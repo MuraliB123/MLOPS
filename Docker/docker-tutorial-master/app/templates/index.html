@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Actors Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background-color: #fff;
+            padding: 10px;
+            margin: 5px 0;
+        }
+        form {
+            text-align: center;
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            padding: 8px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Actors Data</h1>
+    <ul>
+        {% for actor in data %}
+            <li>{{ actor.actor_Name }} - {{ actor.Role_of }}</li>
+        {% endfor %}
+    </ul>
+    <form action="/prediction" method="post">
+        <label for="actor_name">Enter an actor's name:</label><br>
+        <input type="text" id="actor_name" name="actor_name_var"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

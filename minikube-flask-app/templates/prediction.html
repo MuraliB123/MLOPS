@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Regression Model Input</title>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        select {
+            width: calc(100% - 10px);
+            padding: 8px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        input[type="submit"]:hover {
+            background: #45a049;
+        }
+
+        div {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2>Regression Model Input Form</h2>
+    <form action="/prediction" method="post">
+        <label for="Stock_Price">Stock Price:</label><br>
+        <input type="text" id="Stock_Price" name="Stock_Price"><br>
+        
+        <label for="Profit">Profit:</label><br>
+        <input type="text" id="Profit" name="Profit"><br>
+        
+        <label for="Revenue">Revenue:</label><br>
+        <input type="text" id="Revenue" name="Revenue"><br>
+        
+        <label for="Budget_Allocation">Budget Allocation:</label><br>
+        <input type="text" id="Budget_Allocation" name="Budget_Allocation"><br>
+        
+        <label for="Market_Demand">Market Demand:</label><br>
+        <select id="Market_Demand" name="Market_Demand">
+        
+            <option value="Moderate">Moderate</option>
+            <option value="High">High</option>
+        </select><br>
+        
+        <label for="Sales_Forecast">Sales Forecast:</label><br>
+        <select id="Sales_Forecast" name="Sales_Forecast">
+            <option value="Stable">Stable</option>
+            <option value="Strong">Strong</option>
+        </select><br>
+        
+        <label for="Strategic_Initiatives">Strategic Initiatives:</label><br>
+        <select id="Strategic_Initiatives" name="Strategic_Initiatives">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br>
+        
+        <label for="Employee_Attrition">Employee Attrition:</label><br>
+        <select id="Employee_Attrition" name="Employee_Attrition">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select><br>
+        
+        <label for="Workload">Workload:</label><br>
+        <select id="Workload" name="Workload">
+           
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select><br>
+        
+        <input type="submit" value="Submit">
+    </form>
+    <div>
+        <p>No of people to be hired from past data is :</p>
+        {{ prediction }}
+    </div>
+</body>
+</html>

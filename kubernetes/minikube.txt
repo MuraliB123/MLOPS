@@ -1,0 +1,10 @@
+1. kubectl get deploy
+2. kubectl get pods -o wide
+3. curl -L http://ip:8000/demo
+4. minikube service flask-test-service
+5. docker tag flask-kubernetes-deploy <dockerhub_username>/minikube-flask-app
+6. docker push <dockerhub_username>/minikube-flask-app
+7. kubectl apply -f deployment.yaml
+8. kubectl delete deploy (name)
+9. kubectl delete pod (name)
+10. kubectl delete service (name)

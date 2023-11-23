@@ -1,0 +1,24 @@
+1. sudo systemctl start docker : docker service will be turned on immediately 
+2. docker container start container_name : start the stopped containers
+3. docker ps -a : list all container along with status
+4. docker container stop container_name : ends the container
+5. docker kill container_name : stops the container immediately
+6. docker rm -f container_name : removes the container 
+7. docker ps -q : get the id of running containers
+8. docker stop $(docker ps -q) : stops all running container
+9. docker run centos : download new image for centos 
+10. docker run -it centos bash : run the centos container and takes inside the container (command prompt changes) 
+11. docker stop container_id/container_name : stops the container
+12. docker rm 345 e09 :removess the containers.
+13. docker images  docker rmi image_name 
+14. docker run -it kodekloud/simple-app : runs the container in interactive mode
+15. docker run -p 80:5000 kodekloud/simple-app : create multiplt instances of docker host 
+16. docker inspect blissful_hop : get additional details of docker container.
+17. sudo service docker start
+18. sudo systemctl status docker.sockete
+19. sudo systemctl stop docker.socket
+20. docker login
+21. docker push hangman123/apptest1
+22. docker pull hangman123/apptest1:latest
+23. docker run -it -p 5000:5000 apptest1
+24. docker image rm -f $(docker image ls -q)

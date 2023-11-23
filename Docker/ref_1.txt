@@ -1,0 +1,17 @@
+Certainly! Here's a breakdown of each line in the Dockerfile:
+
+1. `FROM python:3.6`: This line defines the base image for the container. In this case, it uses the official Python 3.6 image available on Docker Hub. This will be the starting point for the new image you're creating.
+
+2. `EXPOSE 5000`: It informs Docker that the container will listen on port 5000 at runtime. However, this doesn't actually publish the port. It serves as documentation for anyone running the container to understand which ports are intended to be published.
+
+3. `WORKDIR /app`: Sets the working directory inside the container to `/app`. Subsequent commands will be executed relative to this path.
+
+4. `COPY requirements.txt /app`: Copies the `requirements.txt` file from the host machine to the `/app` directory inside the container. This is often done before running `pip install` to install Python dependencies specified in the `requirements.txt` file.
+
+5. `RUN pip install -r requirements.txt`: Executes the command to install Python dependencies listed in the `requirements.txt` file in the container. The `-r` flag denotes a file containing the requirements to be installed. This step will be run when the image is being built.
+
+6. `COPY  . /app`: Copies all the local files from the host machine to the `/app` directory in the container. This is typically done after installing dependencies to ensure all your application code is available within the container.
+
+7. `CMD python app.py`: Specifies the command to be executed when the container is launched. In this case, it tells the container to run `python app.py`, meaning it will start the Python script named `app.py`.
+
+This Dockerfile sets up an environment, installs Python dependencies from the `requirements.txt` file, and then copies the application code into the container's `/app` directory before running a Python script named `app.py` when the container starts.
